@@ -1,4 +1,6 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material';
+import { theme } from './theme';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Footer from './components/Footer';
@@ -8,11 +10,11 @@ import Contact from './pages/Contact';
 const App = () => {
     const Layout = () => {
         return (
-            <div className="app">
+            <ThemeProvider theme={theme}>
                 <Navbar />
                 <Outlet />
                 <Footer />
-            </div>
+            </ThemeProvider>
         );
     };
 
