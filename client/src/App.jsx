@@ -1,7 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import NavScroll from './components/navscroll/NavScroll';
-import NavSearch from './components/navSearch/NavSearch';
+import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import About from './pages/About';
@@ -11,8 +9,7 @@ const App = () => {
     const Layout = () => {
         return (
             <div className="app">
-                <NavScroll />
-                <NavSearch />
+                <Navbar />
                 <Outlet />
                 <Footer />
             </div>
