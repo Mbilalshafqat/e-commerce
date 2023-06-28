@@ -11,4 +11,7 @@ export const theme = createTheme({
     otherColor: {
         main: '#999',
     },
+    purple: {
+        main: '#824f9d',
+    },
 });
