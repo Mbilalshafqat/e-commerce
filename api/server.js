@@ -3,6 +3,7 @@ import colors from 'colors';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import dbConnect from './config/db.js';
+import authRoutes from './routes/auth.route.js';
 
 // configure env
 dotenv.config();
@@ -19,6 +20,9 @@ const PORT = process.env.PORT;
 
 // MODE
 const MODE = process.env.DEV_MODE;
+
+// routes
+app.use('/api/v1/auth', authRoutes);
 
 // rest api
 app.get('/', (req, res) => {
