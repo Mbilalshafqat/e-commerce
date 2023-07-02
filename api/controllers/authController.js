@@ -1,6 +1,6 @@
-import { comparePassword, hashPassword } from '../helpers/auth.helper.js';
-import User from '../models/user.model.js';
-import JWT from 'jsonwebtoken';
+import { comparePassword, hashPassword } from '../helpers/authHelper.js';
+import User from '../models/User.js';
+import generateToken from '../utils/generateToken.js';
 
 // POST REGISTER
 export const register = async (req, res, next) => {
@@ -64,15 +64,17 @@ export const login = async (req, res, next) => {
                 message: 'You not authentication',
             });
         }
-        // token
-        const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+        // Generate Token When Successfully
+        generateToken(res, user._id);
         res.status(200).send({
             success: true,
             message: 'Login successfully!',
             user: {
+                _id: user._id,
                 name: user.name,
+                email: user.email,
             },
-            token,
+            // token,
         });
     } catch (error) {
         console.log(error);
@@ -85,4 +87,9 @@ export const login = async (req, res, next) => {
             }),
         );
     }
+};
+
+// TEST
+export const test = async (req, res) => {
+    res.send('protected route');
 };

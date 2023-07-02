@@ -2,8 +2,12 @@ import express from 'express';
 import colors from 'colors';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
+
+// cookie
+import cookieParser from 'cookie-parser';
+
 import dbConnect from './config/db.js';
-import authRoutes from './routes/auth.route.js';
+import authRoutes from './routes/authRoute.js';
 
 // configure env
 dotenv.config();
@@ -14,6 +18,9 @@ const app = express();
 // middlewares
 app.use(express.json());
 app.use(morgan('dev'));
+
+// Cookie
+app.use(cookieParser());
 
 // PORT
 const PORT = process.env.PORT;
