@@ -1,20 +1,19 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material';
-import { theme } from './theme';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Container from './components/Container/Container';
 
 const App = () => {
     const Layout = () => {
         return (
-            <ThemeProvider theme={theme}>
+            <Container>
                 <Navbar />
                 <Outlet />
                 <Footer />
-            </ThemeProvider>
+            </Container>
         );
     };
 
