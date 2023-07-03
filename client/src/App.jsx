@@ -1,18 +1,16 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Container from './components/Container/Container';
 import Home from './pages/Home';
-import Footer from './components/Footer';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Container from './components/Container/Container';
+import Policy from './pages/Policy';
+import PageNotFound from './pages/PageNotFound';
 
 const App = () => {
     const Layout = () => {
         return (
             <Container>
-                <Navbar />
                 <Outlet />
-                <Footer />
             </Container>
         );
     };
@@ -25,6 +23,8 @@ const App = () => {
                 { path: '/', element: <Home /> },
                 { path: '/about', element: <About /> },
                 { path: '/contact', element: <Contact /> },
+                { path: '/policy', element: <Policy /> },
+                { path: '*', element: <PageNotFound /> },
             ],
         },
     ]);

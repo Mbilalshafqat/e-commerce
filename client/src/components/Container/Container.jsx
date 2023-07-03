@@ -1,13 +1,12 @@
-import React from 'react';
-// import Navbar from '../Navbar';
-// import Footer from './../Footer';
+import Header from '../Header';
+import Footer from './../Footer';
 
 const Container = (props) => {
     return (
         <div>
-            {/* <Navbar /> */}
-            {props.children}
-            {/* <Footer /> */}
+            <Header />
+            <main style={{ minHeight: '80vh' }}>{props.children}</main>
+            <Footer />
         </div>
     );
 };
